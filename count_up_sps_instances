@@ -1,0 +1,15 @@
+import re
+
+def count_up_instances(filename):
+    count = 0
+    with open(filename, "r", encoding="utf-8") as file:
+        for line in file:
+            # Match patterns like: something: UP
+            match = re.search(r":\s*UP\b", line)
+            if match:
+                count += 1
+    return count
+
+# Example:
+file_path = "data.txt"
+print("UP count in Instances column:", count_up_instances(file_path))
